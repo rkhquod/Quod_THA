@@ -1,74 +1,77 @@
-# Prévision et Analyse des Ventes
+# Sales Forecasting and Analysis
 
-Ce projet propose un mini-workflow de data science pour analyser et prédire le comportement des clients et la dynamique des produits.  
-Il inclut :
-- Le chargement et le nettoyage des données,
-- Quelques visualisations exploratoires,
-- L’entraînement **d’au moins deux modèles** (ici, **Régression Linéaire** et **Random Forest Regressor**),
-- La comparaison de leurs performances et la sauvegarde des modèles entraînés.
+This project provides a mini data science workflow to analyze and predict customer behavior and product dynamics.  
+It includes:
+- Loading and cleaning data,
+- Some exploratory visualizations,
+- Training **at least two models** (here, **Linear Regression** and **Random Forest Regressor**),
+- Comparing their performance and saving the trained models.
 
-## Structure du Projet
+## Project Structure
 
 ```bash
 .
-├── data_preprocessing.py      # Chargement et nettoyage des données
-├── visualizations.py          # Fonctions de visualisation (exploration)
-├── model_train.py             # Préparation des données, entraînement et comparaison de plusieurs modèles
-├── model_evaluate.py          # Chargement et évaluation d’un modèle sauvegardé
-├── main.py                    # Point d'entrée principal qui orchestre l'ensemble
+├── data_preprocessing.py      # Data loading and cleaning
+├── visualizations.py          # Visualization functions (exploration)
+├── model_train.py             # Data preparation, training, and comparison of multiple models
+├── model_evaluate.py          # Loading and evaluating a saved model
+├── main.py                    # Main entry point orchestrating the workflow
 ├── transactions_1.csv
-├── transactions_2.csv         # Exemples de fichiers CSV contenant les transactions
-└── README.md                  # Ce fichier de documentation
+├── transactions_2.csv         # Example CSV files containing transactions
+└── README.md                  # This documentation file
+
 
 ```
-### Rôles des Fichiers
+### File Roles
 
 1. **`data_preprocessing.py`**  
-   - Contient les fonctions pour charger le dataset (fichier CSV) et le nettoyer :  
-     - Conversion de la date au format datetime,  
-     - Suppression des lignes ou dates invalides,  
-     - Gestion de la duplication, etc.
+   - Contains functions for loading and cleaning the dataset (CSV file):  
+     - Converting the date to datetime format,  
+     - Removing invalid rows or dates,  
+     - Handling duplicates, etc.
 
 2. **`visualizations.py`**  
-   - Définit plusieurs fonctions de tracés (avec `matplotlib`) pour :  
-     - Afficher le nombre de transactions par client,  
-     - Analyser la fréquence des transactions par mois pour un produit donné,  
-     - Voir les top 5 produits sur les 6 derniers mois,  
-     - Identifier une éventuelle saisonnalité mensuelle.
+   - Defines several plotting functions (using `matplotlib`) to:  
+     - Display the number of transactions per customer,  
+     - Analyze transaction frequency by month for a given product,  
+     - View the top 5 products over the past 6 months,  
+     - Identify potential monthly seasonality.
 
 3. **`model_train.py`**  
-   - Prépare les données pour la modélisation (groupement mensuel par client),  
-   - Entraîne **plusieurs modèles** (ex. Régression Linéaire, Random Forest),  
-   - Compare leurs métriques (MAE, RMSE) sur le même jeu de test,  
-   - Permet de **sauvegarder** chaque modèle entraîné dans un fichier `.pkl`.
+   - Prepares the data for modeling (monthly grouping by customer),  
+   - Trains **multiple models** (e.g., Linear Regression, Random Forest),  
+   - Compares their metrics (MAE, RMSE) on the same test set,  
+   - Allows **saving** each trained model to a `.pkl` file.
 
 4. **`model_evaluate.py`**  
-   - Charge l’un des modèles sauvegardés,  
-   - Évalue ses performances globales (MAE, RMSE),  
-   - Affiche éventuellement un scatter plot « valeurs réelles vs prédictions ».
+   - Loads one of the saved models,  
+   - Evaluates its overall performance (MAE, RMSE),  
+   - Optionally displays a scatter plot of "actual values vs. predictions."
 
 5. **`main.py`**  
-   - Sert de script principal. Il :  
-     1. Charge et nettoie les données à partir de `transactions_x.csv`,  
-     2. Lance les visualisations clés,  
-     3. Entraîne plusieurs modèles et compare leurs performances,  
-     4. Sauvegarde chaque modèle,  
-     5. Évalue ensuite chaque modèle sur l'ensemble du dataset (ou un sous-ensemble).
+   - Serves as the main script. It:  
+     1. Loads and cleans data from `transactions_x.csv`,  
+     2. Generates key visualizations,  
+     3. Trains multiple models and compares their performance,  
+     4. Saves each model,  
+     5. Evaluates each model on the entire dataset (or a subset).
 
 6. **`transactions_x.csv`**  
-   - Exemple de fichier de transactions.  
+   - Example transaction files.
 
-## Installation & Exécution
 
-1. **Cloner ou copier** ce repository sur votre machine locale.
+## Installation & Execution
 
-2. **Installer les dépendances** (si nécessaire) :
+1. **Clone or copy** this repository to your local machine.
+
+2. **Install dependencies** (if needed):
    ```bash
    pip install pandas numpy scikit-learn matplotlib
-3. **Lancer le script principal** :
+
+3. **Run the main script** :
     ```bash
     python main.py
     ```
 
-    Cela affichera les graphiques et quelques informations dans le terminal (mise en forme du DataFrame, etc.).
-    Le script entraînera également plusieurs modèles (ex. LinearRegression, RandomForestRegressor), comparera leur MAE/RMSE, et sauvegardera chaque modèle (.pkl).
+   This will display the graphs and some information in the terminal (e.g., formatted DataFrame output).  
+The script will also train multiple models (e.g., LinearRegression, RandomForestRegressor), compare their MAE/RMSE, and save each model (`.pkl`).
