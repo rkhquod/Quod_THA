@@ -1,50 +1,64 @@
-### Sales Forecast and analysis
+# Prévision et Analyse des Ventes
 
-### Expectations
+Ce projet propose un mini-workflow de data science pour analyser et prédire le comportement des clients et la dynamique des produits.  
+Il inclut :
+- Le chargement et le nettoyage des données,
+- Quelques visualisations exploratoires,
+- L’entraînement **d’au moins deux modèles** (ici, **Régression Linéaire** et **Random Forest Regressor**),
+- La comparaison de leurs performances et la sauvegarde des modèles entraînés.
 
-The purpose of this test is to assess your problem solving skills, creativity and experience in tackling a data science problem. 
+## Structure du Projet
 
-You don't need to finish the assignment 100% or perfect your code before posting it. Partial and incomplete solutions will be reviewed as well.
+├── data_preprocessing.py # Chargement et nettoyage des données ├── visualizations.py # Fonctions de visualisation (exploration) ├── model_train.py # Préparation des données, entraînement et comparaison de plusieurs modèles ├── model_evaluate.py # Chargement et évaluation d’un modèle sauvegardé ├── main.py # Point d'entrée principal qui orchestre le tout ├── transactions_1.csv et transactions_2.csv # Exemple de fichier CSV contenant les transactions └── README.md # Ce fichier de documentation
 
-### Impress us with your skills in:
+### Rôles des Fichiers
 
-- Python 3
-- Visualizations (Matplolib...)
-- Data processing (Pandas, SQL, etc..)
-- Data structures and algorithms
-- Git (yes, we will read all your commit messages!)
+1. **`data_preprocessing.py`**  
+   - Contient les fonctions pour charger le dataset (fichier CSV) et le nettoyer :  
+     - Conversion de la date au format datetime,  
+     - Suppression des lignes ou dates invalides,  
+     - Gestion de la duplication, etc.
 
-It is completely up to you which data processing framework, machine learning library or visualization tool you use. 
-Just provide us explanation why you have chosen that specific tool for this specific task and in the context of this assignment.
+2. **`visualizations.py`**  
+   - Définit plusieurs fonctions de tracés (avec `matplotlib`) pour :  
+     - Afficher le nombre de transactions par client,  
+     - Analyser la fréquence des transactions par mois pour un produit donné,  
+     - Voir les top 5 produits sur les 6 derniers mois,  
+     - Identifier une éventuelle saisonnalité mensuelle.
 
-#### Your code won't be evaluated for Extensive/fancy documentation or diagrams. A readable README.md along with clear in-line comments is enough.
+3. **`model_train.py`**  
+   - Prépare les données pour la modélisation (groupement mensuel par client),  
+   - Entraîne **plusieurs modèles** (ex. Régression Linéaire, Random Forest),  
+   - Compare leurs métriques (MAE, RMSE) sur le même jeu de test,  
+   - Permet de **sauvegarder** chaque modèle entraîné dans un fichier `.pkl`.
 
+4. **`model_evaluate.py`**  
+   - Charge l’un des modèles sauvegardés,  
+   - Évalue ses performances globales (MAE, RMSE),  
+   - Affiche éventuellement un scatter plot « valeurs réelles vs prédictions ».
 
-### Non Functional Requirements
+5. **`main.py`**  
+   - Sert de script principal. Il :  
+     1. Charge et nettoie les données à partir de `transactions.csv`,  
+     2. Lance les visualisations clés,  
+     3. Entraîne plusieurs modèles et compare leurs performances,  
+     4. Sauvegarde chaque modèle,  
+     5. Évalue ensuite chaque modèle sur l'ensemble du dataset (ou un sous-ensemble).
 
-1. Feel free to use Jupyter notebooks as a dev environment but also make sure to include production ready code as .py files along with the model serialization artifacts. 
-2. Create a separate file for loading the saved model and evaluating the results locally. Include clear in-line instructions. 
-3. Code must be forked and pushed on your personal Github (temporarily).
+6. **`transactions.csv`**  
+   - Exemple de fichier de transactions.  
+   - Adaptez le chemin si votre dataset se trouve ailleurs ou porte un autre nom.
 
-### Problem statement
+## Installation & Exécution
 
-The attached dataset contains three features about the customers of a business.
-- Customer ID
-- Product
-- Time stamp
+1. **Cloner ou copier** ce repository sur votre machine locale.
 
-Our goal is to build a model to facilitate the analysis and prediction of the customer behavior and product dynamics. You're free to pick any architecture and any data model that you deem suitable. Make sure to explain your rationale for picking the model. We're interested in models that deliver reasonably high accuracy and are ideally flexible and powerful enough for adding more features. Here are a few basic questions:
+2. **Installer les dépendances** (si nécessaire) :
+   ```bash
+   pip install pandas numpy scikit-learn matplotlib
+3. **Lancer le script principal** :
+    ```bash
+    python main.py
 
-- Create an ordered (descending) plot that shows the total number of transactions per customer from the most active customer to the least active one. 
-- Given any product ID, create a plot to show its transaction frequency per month for the year 2018. 
-- Build a model to predict the total number of transactions for the next three months per customer anywhere in 2019. For example, given all data up to the end of January 2019, predict the size of the transactions between Feb 1st and April 30th for each customer. Then, measure the performance of your model with appropriate metrics and visuals. 
-- At any time, what are the top 5 products that drove the highest sales over the last six months? Do you see a seasonality effect in this data set?
-
-Feel free to state and solve any other questions that you find interesting about this data set. Attention to good coding practices and style will be noted. Also, feel free to implement more than one model and compare their performance.
-
-### Final Words
-
-This mini-assignment is designed carefully to stretch your skills beyond everyday data science tasks.
-
-We value your time and effort. We take this test seriously and will put quality time to check your code with an open mind and objective review process.
-
+    Cela affichera les graphiques et quelques informations dans le terminal (mise en forme du DataFrame, etc.).
+    Le script entraînera également plusieurs modèles (ex. LinearRegression, RandomForestRegressor), comparera leur MAE/RMSE, et sauvegardera chaque modèle (.pkl).
