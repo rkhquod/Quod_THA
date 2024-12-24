@@ -20,7 +20,7 @@ Il inclut :
 ├── transactions_2.csv         # Exemples de fichiers CSV contenant les transactions
 └── README.md                  # Ce fichier de documentation
 
-
+```
 ### Rôles des Fichiers
 
 1. **`data_preprocessing.py`**  
