@@ -9,13 +9,17 @@ Il inclut :
 
 ## Structure du Projet
 
- ├── data_preprocessing.py # Chargement et nettoyage des données
- ├── visualizations.py # Fonctions de visualisation (exploration) 
- ├── model_train.py # Préparation des données, entraînement et comparaison de plusieurs modèles 
- ├── model_evaluate.py # Chargement et évaluation d’un modèle sauvegardé 
- ├── main.py # Point d'entrée principal qui orchestre le tout 
- ├── transactions_1.csv et transactions_2.csv # Exemple de fichier CSV contenant les transactions 
- └── README.md # Ce fichier de documentation
+```bash
+.
+├── data_preprocessing.py      # Chargement et nettoyage des données
+├── visualizations.py          # Fonctions de visualisation (exploration)
+├── model_train.py             # Préparation des données, entraînement et comparaison de plusieurs modèles
+├── model_evaluate.py          # Chargement et évaluation d’un modèle sauvegardé
+├── main.py                    # Point d'entrée principal qui orchestre l'ensemble
+├── transactions_1.csv
+├── transactions_2.csv         # Exemples de fichiers CSV contenant les transactions
+└── README.md                  # Ce fichier de documentation
+
 
 ### Rôles des Fichiers
 
