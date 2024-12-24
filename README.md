@@ -9,7 +9,13 @@ Il inclut :
 
 ## Structure du Projet
 
-├── data_preprocessing.py # Chargement et nettoyage des données ├── visualizations.py # Fonctions de visualisation (exploration) ├── model_train.py # Préparation des données, entraînement et comparaison de plusieurs modèles ├── model_evaluate.py # Chargement et évaluation d’un modèle sauvegardé ├── main.py # Point d'entrée principal qui orchestre le tout ├── transactions_1.csv et transactions_2.csv # Exemple de fichier CSV contenant les transactions └── README.md # Ce fichier de documentation
+ ├── data_preprocessing.py # Chargement et nettoyage des données
+ ├── visualizations.py # Fonctions de visualisation (exploration) 
+ ├── model_train.py # Préparation des données, entraînement et comparaison de plusieurs modèles 
+ ├── model_evaluate.py # Chargement et évaluation d’un modèle sauvegardé 
+ ├── main.py # Point d'entrée principal qui orchestre le tout 
+ ├── transactions_1.csv et transactions_2.csv # Exemple de fichier CSV contenant les transactions 
+ └── README.md # Ce fichier de documentation
 
 ### Rôles des Fichiers
 
@@ -39,15 +45,14 @@ Il inclut :
 
 5. **`main.py`**  
    - Sert de script principal. Il :  
-     1. Charge et nettoie les données à partir de `transactions.csv`,  
+     1. Charge et nettoie les données à partir de `transactions_x.csv`,  
      2. Lance les visualisations clés,  
      3. Entraîne plusieurs modèles et compare leurs performances,  
      4. Sauvegarde chaque modèle,  
      5. Évalue ensuite chaque modèle sur l'ensemble du dataset (ou un sous-ensemble).
 
-6. **`transactions.csv`**  
+6. **`transactions_x.csv`**  
    - Exemple de fichier de transactions.  
-   - Adaptez le chemin si votre dataset se trouve ailleurs ou porte un autre nom.
 
 ## Installation & Exécution
 
@@ -59,6 +64,7 @@ Il inclut :
 3. **Lancer le script principal** :
     ```bash
     python main.py
+    ```
 
     Cela affichera les graphiques et quelques informations dans le terminal (mise en forme du DataFrame, etc.).
     Le script entraînera également plusieurs modèles (ex. LinearRegression, RandomForestRegressor), comparera leur MAE/RMSE, et sauvegardera chaque modèle (.pkl).
