@@ -1,50 +1,77 @@
-### Sales Forecast and analysis
+# Sales Forecasting and Analysis
 
-### Expectations
+This project provides a mini data science workflow to analyze and predict customer behavior and product dynamics.  
+It includes:
+- Loading and cleaning data,
+- Some exploratory visualizations,
+- Training **at least two models** (here, **Linear Regression** and **Random Forest Regressor**),
+- Comparing their performance and saving the trained models.
 
-The purpose of this test is to assess your problem solving skills, creativity and experience in tackling a data science problem. 
+## Project Structure
 
-You don't need to finish the assignment 100% or perfect your code before posting it. Partial and incomplete solutions will be reviewed as well.
-
-### Impress us with your skills in:
-
-- Python 3
-- Visualizations (Matplolib...)
-- Data processing (Pandas, SQL, etc..)
-- Data structures and algorithms
-- Git (yes, we will read all your commit messages!)
-
-It is completely up to you which data processing framework, machine learning library or visualization tool you use. 
-Just provide us explanation why you have chosen that specific tool for this specific task and in the context of this assignment.
-
-#### Your code won't be evaluated for Extensive/fancy documentation or diagrams. A readable README.md along with clear in-line comments is enough.
+```bash
+.
+├── data_preprocessing.py      # Data loading and cleaning
+├── visualizations.py          # Visualization functions (exploration)
+├── model_train.py             # Data preparation, training, and comparison of multiple models
+├── model_evaluate.py          # Loading and evaluating a saved model
+├── main.py                    # Main entry point orchestrating the workflow
+├── transactions_1.csv
+├── transactions_2.csv         # Example CSV files containing transactions
+└── README.md                  # This documentation file
 
 
-### Non Functional Requirements
+```
+### File Roles
 
-1. Feel free to use Jupyter notebooks as a dev environment but also make sure to include production ready code as .py files along with the model serialization artifacts. 
-2. Create a separate file for loading the saved model and evaluating the results locally. Include clear in-line instructions. 
-3. Code must be forked and pushed on your personal Github (temporarily).
+1. **`data_preprocessing.py`**  
+   - Contains functions for loading and cleaning the dataset (CSV file):  
+     - Converting the date to datetime format,  
+     - Removing invalid rows or dates,  
+     - Handling duplicates, etc.
 
-### Problem statement
+2. **`visualizations.py`**  
+   - Defines several plotting functions (using `matplotlib`) to:  
+     - Display the number of transactions per customer,  
+     - Analyze transaction frequency by month for a given product,  
+     - View the top 5 products over the past 6 months,  
+     - Identify potential monthly seasonality.
 
-The attached dataset contains three features about the customers of a business.
-- Customer ID
-- Product
-- Time stamp
+3. **`model_train.py`**  
+   - Prepares the data for modeling (monthly grouping by customer),  
+   - Trains **multiple models** (e.g., Linear Regression, Random Forest),  
+   - Compares their metrics (MAE, RMSE) on the same test set,  
+   - Allows **saving** each trained model to a `.pkl` file.
 
-Our goal is to build a model to facilitate the analysis and prediction of the customer behavior and product dynamics. You're free to pick any architecture and any data model that you deem suitable. Make sure to explain your rationale for picking the model. We're interested in models that deliver reasonably high accuracy and are ideally flexible and powerful enough for adding more features. Here are a few basic questions:
+4. **`model_evaluate.py`**  
+   - Loads one of the saved models,  
+   - Evaluates its overall performance (MAE, RMSE),  
+   - Optionally displays a scatter plot of "actual values vs. predictions."
 
-- Create an ordered (descending) plot that shows the total number of transactions per customer from the most active customer to the least active one. 
-- Given any product ID, create a plot to show its transaction frequency per month for the year 2018. 
-- Build a model to predict the total number of transactions for the next three months per customer anywhere in 2019. For example, given all data up to the end of January 2019, predict the size of the transactions between Feb 1st and April 30th for each customer. Then, measure the performance of your model with appropriate metrics and visuals. 
-- At any time, what are the top 5 products that drove the highest sales over the last six months? Do you see a seasonality effect in this data set?
+5. **`main.py`**  
+   - Serves as the main script. It:  
+     1. Loads and cleans data from `transactions_x.csv`,  
+     2. Generates key visualizations,  
+     3. Trains multiple models and compares their performance,  
+     4. Saves each model,  
+     5. Evaluates each model on the entire dataset (or a subset).
 
-Feel free to state and solve any other questions that you find interesting about this data set. Attention to good coding practices and style will be noted. Also, feel free to implement more than one model and compare their performance.
+6. **`transactions_x.csv`**  
+   - Example transaction files.
 
-### Final Words
 
-This mini-assignment is designed carefully to stretch your skills beyond everyday data science tasks.
+## Installation & Execution
 
-We value your time and effort. We take this test seriously and will put quality time to check your code with an open mind and objective review process.
+1. **Clone or copy** this repository to your local machine.
 
+2. **Install dependencies** (if needed):
+   ```bash
+   pip install pandas numpy scikit-learn matplotlib
+
+3. **Run the main script** :
+    ```bash
+    python main.py
+    ```
+
+   This will display the graphs and some information in the terminal (e.g., formatted DataFrame output).  
+The script will also train multiple models (e.g., LinearRegression, RandomForestRegressor), compare their MAE/RMSE, and save each model (`.pkl`).
