@@ -1,5 +1,8 @@
 # env directories/variables
 venv/
 
+# results
+solutions/tasks/results/
+
 # others
 .idea/
