@@ -3,3 +3,5 @@ XGBoost_Model
 RandomForest_Model
 models/__pycache__
 __pycache__
+preprocessed_train.csv
+preprocessed_test.csv
