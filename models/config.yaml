@@ -1,0 +1,40 @@
+
+
+RandomForest:
+  criterion: 'absolute_error'
+  n_estimators: 80
+  max_depth: 5
+  max_features: 'sqrt'
+  min_samples_split : 2
+  n_jobs: -1
+  random_state: 42
+  verbose: 1
+
+
+XGBoost:
+  n_estimators: 38
+  max_depth: 7
+  colsample_bytree: 0.5167227122949185
+  min_child_weight: 6
+  learning_rate: 0.19308985065150314
+  tree_method: 'hist'
+  device: 'cuda'
+  verbosity: 1
+  n_jobs: -1
+  random_state: 42
+
+Ridge:
+  alpha: 100
+
+NeuralNet:
+  hidden_dim: 100
+  output_dim: 1
+  dropout_rate: 0.2
+  epochs: 50
+  lr: 8e-5
+  batch_size: 256
+  patience: 10
+  loss: "L1Loss"  
+  optimizer: "Adam"
+  print_per_epoch: 3
+
