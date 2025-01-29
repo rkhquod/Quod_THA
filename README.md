@@ -64,13 +64,17 @@ The project is organized as follows:
 
 Available steps:
 
-**preprocess**: Preprocess the raw data.
-**visualize**: Generate visualizations.
-**train**: Train the selected model.
-**evaluate**: Evaluate the model's performance.
-**all**: Run all steps sequentially.
+- **preprocess**: Preprocess the raw data.
 
-Example :
+- **visualize**: Generate visualizations.
+
+- **train**: Train the selected model.
+
+- **evaluate**: Evaluate the model's performance.
+
+- **all**: Run all steps sequentially.
+
+**Example:**
 
 ```bash
 python run.py preprocess train evaluate
