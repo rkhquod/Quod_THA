@@ -1,0 +1,4 @@
+model_name: "NeuralNet"  # Options: XGBoost, RandomForest, RidgeML, NeuralNet
+train_year: 2019
+train_month: 1
+data_path: "data/processed/preprocessed_train.csv"
