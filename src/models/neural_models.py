@@ -90,13 +90,11 @@ class NeuralNet(MLModel):
         # Convert data to PyTorch tensors
         X = self.scaler.fit_transform(X)
         X_val = self.scaler.transform(X_val)
-        
         X_tensor = torch.tensor(X, dtype=torch.float32).to(self.device)
         y_tensor = torch.tensor(y, dtype=torch.float32).to(self.device)
         dataset = TensorDataset(X_tensor, y_tensor)
         dataloader = DataLoader(dataset, batch_size=self.params["batch_size"], shuffle=True)
 
-        # Validation data (if provided)
         if X_val is not None and y_val is not None:
             X_val_tensor = torch.tensor(X_val, dtype=torch.float32).to(self.device)
             y_val_tensor = torch.tensor(y_val, dtype=torch.float32).to(self.device)
@@ -144,6 +142,8 @@ class NeuralNet(MLModel):
                 if valid_loss < self.best_valid_loss:
                     self.best_valid_loss = valid_loss
                     self.epochs_without_improvement = 0
+                    self.save_model()
+                    
                 else:
                     self.epochs_without_improvement += 1
                     if self.epochs_without_improvement >= self.patience:

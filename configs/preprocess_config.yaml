@@ -1,7 +1,5 @@
 data:
-  raw_data_paths:  # List of paths to raw transaction data files
-    - data/raw/transactions_1.csv
-    - data/raw/transactions_2.csv
+
   processed_data_dir: "data/processed"  # Directory to save preprocessed data
   train_test_split:
     train_year: 2019
@@ -9,7 +7,7 @@ data:
 
 preprocessing:
   monthly_data:
-    periodic_col: "year_month"
+    monthly_col: "year_month"
     fill_value: 0
 
   feature_engineering:

@@ -7,6 +7,8 @@ from src.preprocessing.utils import (
 )
 from src.utils.logger import setup_logger
 from src.utils.config_loader import load_config
+from src.utils.constants import CONFIG_PREPROCESS
+from src.preprocessing.utils import load_raw_data
 
 class FeatureEngineer:
     def __init__(self, config):
@@ -17,7 +19,7 @@ class FeatureEngineer:
         self.logger.info("Generating monthly data...")
         monthly_data = generate_monthly_data(
             cleaned_data,
-            periodic_col=self.config["preprocessing"]["monthly_data"]["periodic_col"],
+            monthly_col=self.config["preprocessing"]["monthly_data"]["monthly_col"],
             fill_value=self.config["preprocessing"]["monthly_data"]["fill_value"]
         )
         self.logger.info(f"Monthly data generated. Shape: {monthly_data.shape}")
@@ -92,8 +94,9 @@ class Preprocessor:
     def preprocess_data(self):
         self.logger.info("Starting preprocessing pipeline...")
         
-        raw_dataframes = self.load_raw_data()
+        raw_dataframes = load_raw_data(self.logger)
         cleaned_data = self.clean_data(raw_dataframes)
+        
         
         monthly_data = self.feature_engineer.generate_monthly_data(cleaned_data)
         monthly_data = self.feature_engineer.feat_eng_monthly(monthly_data)
@@ -113,7 +116,7 @@ class Preprocessor:
 
 
 def main():
-    config = load_config("configs/preprocess_config.yaml")
+    config = load_config(CONFIG_PREPROCESS)
     preprocessor = Preprocessor(config)
     preprocessor.preprocess_data()
 

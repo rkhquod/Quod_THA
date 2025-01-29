@@ -11,6 +11,7 @@ RandomForest:
 
 XGBoost:
   n_estimators: 38
+  objective: reg:absoluteerror
   max_depth: 7
   colsample_bytree: 0.5167227122949185
   min_child_weight: 6
@@ -29,11 +30,11 @@ NeuralNet:
   hidden_dim: 100
   output_dim: 1
   dropout_rate: 0.2
-  epochs: 50
-  lr: 8e-5
+  epochs: 100
+  lr: 4e-5
   batch_size: 256
   patience: 10
   loss: "L1Loss"  
   optimizer: "Adam"
-  print_per_epoch: 3
+  print_per_epoch: 1
 

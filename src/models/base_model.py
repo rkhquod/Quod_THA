@@ -4,6 +4,7 @@ import yaml
 import torch
 import joblib
 import time
+import numpy as np
 from src.utils.logger import setup_logger 
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
@@ -26,6 +27,7 @@ class MLModel(ABC):
         self.config_path = config_path
         self.model_save_dir = "artifacts/" + name
         self.scaler_path = os.path.join(self.model_save_dir, "scaler.pkl")
+        self.scaler = None
         self.logger = setup_logger(self.name, self.model_save_dir)  # Use the centralized logger setup
 
     def fit(self, X, y, X_val=None, y_val=None):
@@ -153,7 +155,9 @@ class MLModel(ABC):
         """
         Subclass-specific implementation of the predict method.
         """
-        return self.model.predict(X)
+        predictions = self.model.predict(X)
+        predictions = np.clip(predictions, 0, None)
+        return predictions
 
     def _evaluate_impl(self, X, y):
         """

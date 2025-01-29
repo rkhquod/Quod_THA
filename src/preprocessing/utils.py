@@ -1,32 +1,45 @@
-# utils/preprocessing_utils.py
 import pandas as pd
 from tqdm import tqdm
+from src.utils.constants import RAW_DATA_PATHS, TARGET_COLUMN
+
+def load_raw_data(logger=None):
+    
+    if logger:
+        logger.info("Loading raw data...")
+    raw_dataframes = []
+    for path in RAW_DATA_PATHS:
+        df = pd.read_csv(path)
+        if logger:
+            logger.info(f"Loaded raw data from {path}. Shape: {df.shape}")
+        raw_dataframes.append(df)
+        
+    return raw_dataframes
 
 def clean_data(transaction_dataframes):
     """Concatenate and clean transaction data."""
     all_transactions = pd.concat(transaction_dataframes, axis=0).sort_values(by=["date"])
     all_transactions = all_transactions.drop_duplicates()
+    all_transactions['date'] = pd.to_datetime(all_transactions['date'], format='%Y-%m-%dT%H:%M:%S.%fZ', errors='coerce')
     return all_transactions
 
-def generate_monthly_data(df, periodic_col="year_month", fill_value=0):
+def generate_monthly_data(df, monthly_col="year_month", fill_value=0):
     """Generate monthly transaction data."""
-    df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%dT%H:%M:%S.%fZ', errors='coerce')
-    df[periodic_col] = df['date'].dt.to_period('M')
-    periodic_data = df.groupby(['customer_id', periodic_col])['product_id'].count().reset_index().rename(
+    df[monthly_col] = df['date'].dt.to_period('M')
+    periodic_data = df.groupby(['customer_id', monthly_col])['product_id'].count().reset_index().rename(
         columns={"product_id": "transactions"}
     )
     
-    all_dates = pd.period_range(start=periodic_data[periodic_col].min(),
-                                end=periodic_data[periodic_col].max(),
+    all_dates = pd.period_range(start=periodic_data[monthly_col].min(),
+                                end=periodic_data[monthly_col].max(),
                                 freq='M')
     
     all_combinations = pd.MultiIndex.from_product(
         [periodic_data['customer_id'].unique(), all_dates],
-        names=['customer_id', periodic_col]
+        names=['customer_id', monthly_col]
     ).to_frame(index=False)
     
-    complete_data = all_combinations.merge(periodic_data, on=['customer_id', periodic_col], how='left')
-    complete_data['transactions'] = complete_data['transactions'].fillna(fill_value)
+    complete_data = all_combinations.merge(periodic_data, on=['customer_id', monthly_col], how='left')
+    complete_data[TARGET_COLUMN] = complete_data['transactions'].fillna(fill_value)
     
     return complete_data
 
@@ -64,13 +77,39 @@ def tri_monthly_rolling_transaction_sums(monthly_data, window_size=3):
                 'start_month': customer_data['year_month'].iloc[i].month,
                 'end_year': customer_data['year_month'].iloc[i+window_size-1].year,
                 'end_month': customer_data['year_month'].iloc[i+window_size-1].month,
-                'transactions': target_sum,
+                TARGET_COLUMN: target_sum,
                 **lagged_transactions
             })
     
     transformed_data = pd.DataFrame(transformed_data)
     transformed_data = transformed_data.sort_values(by=['customer_id', 'start_year', 'start_month'])
     return transformed_data
+
+
+# def tri_monthly_rolling_transaction_sums(monthly_data, window_size=3, target_column='target_sum'):
+#     # Ensure the data is sorted by customer and date
+#     monthly_data = monthly_data.sort_values(by=['customer_id', 'year_month'])
+    
+#     def calc_rolling_sums(df):
+#         # 1) Calculate rolling sum of transactions over N=window_size months
+#         df['rolling_sum'] = df['transactions'].rolling(window=window_size).sum()
+#         # 2) Tag the start date of each window with a shift
+#         df['start_year'] = df['year_month'].shift(window_size - 1).dt.year
+#         df['start_month'] = df['year_month'].shift(window_size - 1).dt.month
+        
+#         # 3) The end date is the date of the *current* row
+#         df['end_year'] = df['year_month'].dt.year
+#         df['end_month'] = df['year_month'].dt.month
+        
+#         return df
+
+#     # Apply the rolling-sum logic within each customer group
+#     monthly_data = monthly_data.groupby('customer_id', group_keys=False).apply(calc_rolling_sums)
+#     monthly_data = monthly_data.dropna(subset=['rolling_sum']).copy()
+#     monthly_data.rename(columns={'rolling_sum': target_column}, inplace=True)
+#     monthly_data.sort_values(by=['customer_id', 'start_year', 'start_month'], inplace=True)
+    
+#     return monthly_data
 
 
 def train_test_split(transaction_data, train_year=2019, train_month=1):
