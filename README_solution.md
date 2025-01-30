@@ -24,6 +24,10 @@ export PYTHONPATH=$(pwd)
   * `validate` - validate of trained models (in the `streamlit` app)
 * You can run the scripts using the following commands:
 
+Be sure, that You have good PYTHONPATH (base directory)
+```bash
+export PYTHONPATH=$(pwd)
+```
 
 ### Task 1: Transactions per Customer
 ```bash
@@ -41,7 +45,8 @@ streamlit run solutions/tasks/task_2/main.py
 streamlit run solutions/tasks/task_3/training.py
 ```
 
-Inference and validation is possible for default dates during training ("2019-01-31").
+Inference and validation are possible for default dates during training ("2019-01-31").
+
 #### Making Predictions using the Saved Model:
 ```bash
 python solutions/tasks/task_3/inference.py
@@ -55,4 +60,15 @@ streamlit run solutions/tasks/task_3/validate.py
 ### Task 4: Top 5 Products Over the Last 6 Months
 ```bash
 streamlit run solutions/tasks/task_4/main.py
+```
+
+### Task Extra
+There are 2 additional tasks with interesting visualization
+
+```bash
+streamlit run solutions/tasks/task_extra/customers_similarity.py
+```
+
+```bash
+streamlit run solutions/tasks/task_extra/transactions_heatmap.py
 ```

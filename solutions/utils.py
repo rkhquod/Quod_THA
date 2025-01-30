@@ -18,6 +18,7 @@ def load_data() -> pd.DataFrame:
     df_data_2 = pd.read_csv(data_2_filepath, index_col=0)
     df_data = pd.concat([df_data_1, df_data_2])
     df_data[DATE_COLNAME] = pd.to_datetime(df_data[DATE_COLNAME])
+    df_data = df_data.loc[~df_data['product_id'].isin(['Undefined', 'Not a make'])]
 
     return df_data
 
@@ -29,9 +30,6 @@ def save_results_plot(n_task: int, plot_name: str) -> None:
     Args:
         n_task (int): The task number used to create the folder structure.
         plot_name (str): The name of the plot file (without extension).
-
-    Returns:
-        None
     """
     plot_filepath = os.path.join(RESULTS_DIR, f'task_{n_task}', f'{plot_name}.png')
     os.makedirs(os.path.dirname(plot_filepath), exist_ok=True)
