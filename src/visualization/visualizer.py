@@ -120,7 +120,7 @@ def plot_seasonality(transactions):
     plt.show()
     
 def main() :
-    logger = setup_logger("viz", "artifacts/visualization", save_to_file=True)
+    logger = setup_logger("viz", "artifacts/visualization", save_to_file=False)
     
     df = load_raw_data(logger)
     df = clean_data(df)

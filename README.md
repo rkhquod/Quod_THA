@@ -87,15 +87,15 @@ To execute the training process, we choose a model by entering the corresponding
 - 3 : RandomForest
 - 4 : RidgeML
 
-
-
 3. **Performance Metrics**:
 
-The performance of each model is evaluated using MAE and MSE. Below is a summary of the results:
+
+The performance of each model was evaluated using Mean Absolute Error (MAE) and Mean Squared Error (MSE). The task was to predict the sum of sales for each customer from February to April 2019. For comparison, a benchmark model was included, which predicts sales based on the sum of sales from the last 3-month period (November 2018 to January 2019).
 
 | Model          | MAE   | MSE   |
 |----------------|-------|-------|
-| Ridge          | 21.82 | 5752  |
-| XGBoost        | 18.89 | 4240  |
-| Neural Network | 18.27 | 4105  |
+| Benchmark      | 31.11 | 9033  |
+| Ridge          | 21.24 | 5429  |
+| Neural Network | 17.94 | 3954  |
+| XGBoost        | 17.13 | 3334  |
 | Random Forest  | 17.2  | 2914  |

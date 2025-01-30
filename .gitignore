@@ -1,4 +1,3 @@
-artifacts
 data/processed
 **/__pycache__
-testenv
+myenv

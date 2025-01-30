@@ -1,0 +1,3 @@
+RidgeML:
+  alpha: 100
+  random_state: 42

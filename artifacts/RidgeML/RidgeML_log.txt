@@ -1,0 +1,12 @@
+2025-01-30 10:30:54,785 - RidgeML - INFO - Training data shape: X_train=(46046, 21), y_train=(46046,)
+2025-01-30 10:30:54,786 - RidgeML - INFO - Validation data shape: X_val=(0, 0), y_val=(0,)
+2025-01-30 10:30:54,786 - RidgeML - INFO - Model config: {'alpha': 100, 'random_state': 42}
+2025-01-30 10:30:54,787 - RidgeML - INFO - Training RidgeML model...
+2025-01-30 10:30:54,799 - RidgeML - INFO - Training completed in 0.01 seconds.
+2025-01-30 10:30:54,836 - RidgeML - INFO - Evaluating RidgeML model...
+2025-01-30 10:30:54,837 - RidgeML - INFO - Making predictions using RidgeML model...
+2025-01-30 10:30:54,838 - RidgeML - INFO - Prediction completed in 0.00 seconds.
+2025-01-30 10:30:54,840 - RidgeML - INFO - Evaluation metrics:
+2025-01-30 10:30:54,841 - RidgeML - INFO - MAE: 21.2400
+2025-01-30 10:30:54,841 - RidgeML - INFO - MSE: 5429.9884
+2025-01-30 10:30:54,842 - RidgeML - INFO - Evaluation completed in 0.01 seconds.

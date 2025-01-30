@@ -31,7 +31,7 @@ NeuralNet:
   output_dim: 1
   dropout_rate: 0.2
   epochs: 100
-  lr: 4e-5
+  lr: 2e-5
   batch_size: 256
   patience: 10
   loss: "L1Loss"  
