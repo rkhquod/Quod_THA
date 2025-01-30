@@ -130,7 +130,7 @@ if __name__ == "__main__":
         else:
             # Build an LGBM model with simple features based on lags from the previous 7 days
             df_lags = pd.DataFrame(df_cust_filled)
-            df_lags.columns = ['y']  # transakcje w kolumnie 'y'
+            df_lags.columns = ['y']
 
             max_lag = 7
             for lag in range(1, max_lag + 1):
@@ -184,7 +184,7 @@ if __name__ == "__main__":
     if len(abs_errors) > 0:
         mean_ae = np.mean(abs_errors)  # Mean Absolute Error (for 3-months sum)
         mean_se = np.mean(sq_errors)
-        mean_mse = mean_se
+        mean_mse = mean_se  # In this case - this is same
         mean_rmse = np.sqrt(mean_mse)
 
         print(f"=== Overall {model_type} performance (3-month totals) ===")
