@@ -61,55 +61,34 @@ def feat_eng_tri_monthly(monthly_transactions, min_lag=3, max_lag=13, window=3, 
 
 
 def tri_monthly_rolling_transaction_sums(monthly_data, window_size=3):
-    """Calculate sums of transactions in windows of 3 months."""
-    transformed_data = []
-    
-    for customer_id in tqdm(monthly_data['customer_id'].unique()):
-        customer_data = monthly_data[monthly_data['customer_id'] == customer_id]
-        
-        for i in range(len(customer_data) - window_size + 1):
-            target_sum = customer_data['transactions'].iloc[i:i+window_size].sum()
-            lagged_transactions = monthly_data[monthly_data['customer_id'] == customer_id].iloc[i].drop(['transactions', 'year_month']).to_dict()
-            
-            transformed_data.append({
-                'customer_id': customer_id,
-                'start_year': customer_data['year_month'].iloc[i].year,
-                'start_month': customer_data['year_month'].iloc[i].month,
-                'end_year': customer_data['year_month'].iloc[i+window_size-1].year,
-                'end_month': customer_data['year_month'].iloc[i+window_size-1].month,
-                TARGET_COLUMN: target_sum,
-                **lagged_transactions
-            })
-    
-    transformed_data = pd.DataFrame(transformed_data)
-    transformed_data = transformed_data.sort_values(by=['customer_id', 'start_year', 'start_month'])
-    return transformed_data
+    # Sort the data by customer and date
+    monthly_data = monthly_data.sort_values(by=['customer_id', 'year_month'])
 
-
-# def tri_monthly_rolling_transaction_sums(monthly_data, window_size=3, target_column='target_sum'):
-#     # Ensure the data is sorted by customer and date
-#     monthly_data = monthly_data.sort_values(by=['customer_id', 'year_month'])
-    
-#     def calc_rolling_sums(df):
-#         # 1) Calculate rolling sum of transactions over N=window_size months
-#         df['rolling_sum'] = df['transactions'].rolling(window=window_size).sum()
-#         # 2) Tag the start date of each window with a shift
-#         df['start_year'] = df['year_month'].shift(window_size - 1).dt.year
-#         df['start_month'] = df['year_month'].shift(window_size - 1).dt.month
+    def calc_rolling_sums(group):
         
-#         # 3) The end date is the date of the *current* row
-#         df['end_year'] = df['year_month'].dt.year
-#         df['end_month'] = df['year_month'].dt.month
+        group[TARGET_COLUMN] = group[TARGET_COLUMN].shift(-(window_size - 1)).rolling(window=window_size, min_periods=1).sum()
+        # Extract start and end months for each rolling window
+        group['start_month'] = group['year_month'].dt.month
+        group['start_year'] = group['year_month'].dt.year
         
-#         return df
+        group['end_month'] = group['start_month'] + window_size - 1
+        group['end_year'] = group['start_year']
+        
+        overflow = group['end_month'] > 12
+        group.loc[overflow, 'end_month'] -= 12
+        group.loc[overflow, 'end_year'] += 1
+        
+        group = group.dropna(subset=[TARGET_COLUMN])
+        return group
 
-#     # Apply the rolling-sum logic within each customer group
-#     monthly_data = monthly_data.groupby('customer_id', group_keys=False).apply(calc_rolling_sums)
-#     monthly_data = monthly_data.dropna(subset=['rolling_sum']).copy()
-#     monthly_data.rename(columns={'rolling_sum': target_column}, inplace=True)
-#     monthly_data.sort_values(by=['customer_id', 'start_year', 'start_month'], inplace=True)
+    # Apply the calculation group by customer
+    monthly_data = monthly_data.groupby('customer_id', group_keys=False).apply(calc_rolling_sums)
     
-#     return monthly_data
+    # Sort the final result
+    monthly_data = monthly_data.sort_values(by=['customer_id', 'start_year', 'start_month'])
+    monthly_data = monthly_data.drop(columns = ["year_month"])
+    
+    return monthly_data
 
 
 def train_test_split(transaction_data, train_year=2019, train_month=1):

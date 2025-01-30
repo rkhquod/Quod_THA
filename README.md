@@ -44,7 +44,7 @@ The project is organized as follows:
 ### **Performance Evaluation**
 
 - Metrics such as Mean Absolute Error (MAE) and Mean Squared Error (MSE) are calculated for each model.
-- Artifacts for each model including hyperparameters, model, training and evalauation logs are saved in the `artifacts/model_name` folde
+- Artifacts for each model including hyperparameters, model, training and evaluation logs are saved in the `artifacts/model_name` folder.
 
 ---
 
@@ -74,13 +74,23 @@ Available steps:
 
 - **all**: Run all steps sequentially.
 
+
 **Example:**
 
 ```bash
 python run.py preprocess train evaluate
 ```
 
-2. **Performance Metrics**:
+To execute the training process, we choose a model by entering the corresponding number:
+
+- 1 : NeuralNet
+- 2 : XGBoost
+- 3 : RandomForest
+- 4 : RidgeML
+
+
+
+3. **Performance Metrics**:
 
 The performance of each model is evaluated using MAE and MSE. Below is a summary of the results:
 
