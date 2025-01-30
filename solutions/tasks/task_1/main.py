@@ -1,6 +1,5 @@
-import streamlit as st
-import pandas as pd
 import altair as alt
+import streamlit as st
 
 from solutions.const import CUSTOMER_ID_COLNAME
 from solutions.utils import load_data
@@ -29,10 +28,10 @@ def main():
     # Slider for selecting TOP N customers
     max_customers = len(transactions_per_customer)
     top_n = st.slider(
-        "Ilu najaktywniejszych klientów wyświetlić?",
+        "How many most active customers to display?",
         min_value=1,
         max_value=max_customers,
-        value=min(50, max_customers)  # domyślnie np. 50
+        value=min(50, max_customers)
     )
 
     # Cut to TOP N
