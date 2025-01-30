@@ -30,10 +30,9 @@ The project is organized as follows:
 
 ### **Data Visualization**
 
-- Ordered plot of total transactions per customer (from most to least active).
-- Monthly transaction frequency for any product in 2018.
-- Top products with the highest sales over the last six months, with seasonality analysis. This is plotted for each month until the last date.
-- All these plots are **saved in outputs folder**
+- Ordered plot of total transactions per customer (from most to least active) saved in `outputs/product_count_per_customer.png`.
+- Monthly transaction frequency for Peugeot from 2017 to 2020, saved in  `outputs/monthly_Peugeot_transactions.png`
+- Top products with the highest sales over the last six months, with seasonality analysis. This is plotted for each month until the last date. The plot is saved in  `outputs/top_products.png`
 
 ### **Model Building**
 
