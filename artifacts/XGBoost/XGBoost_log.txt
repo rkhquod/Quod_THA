@@ -1,0 +1,12 @@
+2025-01-30 10:31:09,994 - XGBoost - INFO - Training data shape: X_train=(46046, 21), y_train=(46046,)
+2025-01-30 10:31:09,995 - XGBoost - INFO - Validation data shape: X_val=(0, 0), y_val=(0,)
+2025-01-30 10:31:09,996 - XGBoost - INFO - Model config: {'n_estimators': 38, 'objective': 'reg:absoluteerror', 'max_depth': 7, 'colsample_bytree': 0.5167227122949185, 'min_child_weight': 6, 'learning_rate': 0.19308985065150314, 'tree_method': 'hist', 'device': 'cuda', 'verbosity': 1, 'n_jobs': -1, 'random_state': 42}
+2025-01-30 10:31:09,997 - XGBoost - INFO - Training XGBoost model...
+2025-01-30 10:31:10,641 - XGBoost - INFO - Training completed in 0.64 seconds.
+2025-01-30 10:31:10,774 - XGBoost - INFO - Evaluating XGBoost model...
+2025-01-30 10:31:10,775 - XGBoost - INFO - Making predictions using XGBoost model...
+2025-01-30 10:31:10,778 - XGBoost - INFO - Prediction completed in 0.00 seconds.
+2025-01-30 10:31:10,782 - XGBoost - INFO - Evaluation metrics:
+2025-01-30 10:31:10,782 - XGBoost - INFO - MAE: 17.1392
+2025-01-30 10:31:10,782 - XGBoost - INFO - MSE: 3334.0813
+2025-01-30 10:31:10,783 - XGBoost - INFO - Evaluation completed in 0.01 seconds.

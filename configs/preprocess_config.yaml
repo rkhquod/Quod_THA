@@ -1,0 +1,26 @@
+data:
+
+  processed_data_dir: "data/processed"  # Directory to save preprocessed data
+  train_test_split:
+    train_year: 2019
+    train_month: 1
+
+preprocessing:
+  monthly_data:
+    monthly_col: "year_month"
+    fill_value: 0
+
+  feature_engineering:
+    monthly:
+      min_lag: 1
+      max_lag: 13
+      window: 1
+      fill_value: 0.0
+    tri_monthly:
+      min_lag: 3
+      max_lag: 13
+      window: 3
+      fill_value: 0.0
+
+  rolling_window:
+    window_size: 3

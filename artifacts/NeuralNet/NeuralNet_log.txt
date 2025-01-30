@@ -1,0 +1,146 @@
+2025-01-30 10:32:02,882 - NeuralNet - INFO - Training data shape: X_train=(40040, 21), y_train=(40040,)
+2025-01-30 10:32:02,883 - NeuralNet - INFO - Validation data shape: X_val=(2002, 21), y_val=(2002,)
+2025-01-30 10:32:02,883 - NeuralNet - INFO - Model config: {'hidden_dim': 100, 'output_dim': 1, 'dropout_rate': 0.2, 'epochs': 100, 'lr': '4e-5', 'batch_size': 256, 'patience': 10, 'loss': 'L1Loss', 'optimizer': 'Adam', 'print_per_epoch': 1}
+2025-01-30 10:32:02,884 - NeuralNet - INFO - Training NeuralNet model...
+2025-01-30 10:32:04,577 - NeuralNet - INFO - Epoch [1/100], Train Loss: 44.1915
+2025-01-30 10:32:04,607 - NeuralNet - INFO - Epoch [1/100], Valid Loss: 45.9313
+2025-01-30 10:32:06,493 - NeuralNet - INFO - Epoch [2/100], Train Loss: 43.9729
+2025-01-30 10:32:06,534 - NeuralNet - INFO - Epoch [2/100], Valid Loss: 45.4532
+2025-01-30 10:32:08,384 - NeuralNet - INFO - Epoch [3/100], Train Loss: 43.0434
+2025-01-30 10:32:08,422 - NeuralNet - INFO - Epoch [3/100], Valid Loss: 43.6442
+2025-01-30 10:32:10,168 - NeuralNet - INFO - Epoch [4/100], Train Loss: 40.9296
+2025-01-30 10:32:10,212 - NeuralNet - INFO - Epoch [4/100], Valid Loss: 40.0666
+2025-01-30 10:32:12,195 - NeuralNet - INFO - Epoch [5/100], Train Loss: 38.5764
+2025-01-30 10:32:12,242 - NeuralNet - INFO - Epoch [5/100], Valid Loss: 36.2261
+2025-01-30 10:32:14,405 - NeuralNet - INFO - Epoch [6/100], Train Loss: 36.9195
+2025-01-30 10:32:14,507 - NeuralNet - INFO - Epoch [6/100], Valid Loss: 34.0021
+2025-01-30 10:32:18,137 - NeuralNet - INFO - Epoch [7/100], Train Loss: 35.9284
+2025-01-30 10:32:18,239 - NeuralNet - INFO - Epoch [7/100], Valid Loss: 32.7680
+2025-01-30 10:32:22,285 - NeuralNet - INFO - Epoch [8/100], Train Loss: 35.0356
+2025-01-30 10:32:22,440 - NeuralNet - INFO - Epoch [8/100], Valid Loss: 32.1696
+2025-01-30 10:32:25,847 - NeuralNet - INFO - Epoch [9/100], Train Loss: 34.3369
+2025-01-30 10:32:25,920 - NeuralNet - INFO - Epoch [9/100], Valid Loss: 31.9776
+2025-01-30 10:32:29,355 - NeuralNet - INFO - Epoch [10/100], Train Loss: 33.7279
+2025-01-30 10:32:29,447 - NeuralNet - INFO - Epoch [10/100], Valid Loss: 31.8999
+2025-01-30 10:32:32,163 - NeuralNet - INFO - Epoch [11/100], Train Loss: 33.2615
+2025-01-30 10:32:32,263 - NeuralNet - INFO - Epoch [11/100], Valid Loss: 31.8121
+2025-01-30 10:32:35,615 - NeuralNet - INFO - Epoch [12/100], Train Loss: 32.8770
+2025-01-30 10:32:35,698 - NeuralNet - INFO - Epoch [12/100], Valid Loss: 31.6262
+2025-01-30 10:32:38,351 - NeuralNet - INFO - Epoch [13/100], Train Loss: 32.4841
+2025-01-30 10:32:38,412 - NeuralNet - INFO - Epoch [13/100], Valid Loss: 31.7899
+2025-01-30 10:32:42,443 - NeuralNet - INFO - Epoch [14/100], Train Loss: 32.1862
+2025-01-30 10:32:42,569 - NeuralNet - INFO - Epoch [14/100], Valid Loss: 31.7930
+2025-01-30 10:32:46,360 - NeuralNet - INFO - Epoch [15/100], Train Loss: 31.9301
+2025-01-30 10:32:46,476 - NeuralNet - INFO - Epoch [15/100], Valid Loss: 31.7403
+2025-01-30 10:32:51,067 - NeuralNet - INFO - Epoch [16/100], Train Loss: 31.7110
+2025-01-30 10:32:51,165 - NeuralNet - INFO - Epoch [16/100], Valid Loss: 31.7156
+2025-01-30 10:32:54,336 - NeuralNet - INFO - Epoch [17/100], Train Loss: 31.5652
+2025-01-30 10:32:54,423 - NeuralNet - INFO - Epoch [17/100], Valid Loss: 31.8161
+2025-01-30 10:32:57,808 - NeuralNet - INFO - Epoch [18/100], Train Loss: 31.4066
+2025-01-30 10:32:57,883 - NeuralNet - INFO - Epoch [18/100], Valid Loss: 31.7535
+2025-01-30 10:33:01,904 - NeuralNet - INFO - Epoch [19/100], Train Loss: 31.3703
+2025-01-30 10:33:01,986 - NeuralNet - INFO - Epoch [19/100], Valid Loss: 32.0895
+2025-01-30 10:33:04,884 - NeuralNet - INFO - Epoch [20/100], Train Loss: 31.3055
+2025-01-30 10:33:04,967 - NeuralNet - INFO - Epoch [20/100], Valid Loss: 32.1287
+2025-01-30 10:33:09,173 - NeuralNet - INFO - Epoch [21/100], Train Loss: 31.0072
+2025-01-30 10:33:09,274 - NeuralNet - INFO - Epoch [21/100], Valid Loss: 32.1015
+2025-01-30 10:33:13,622 - NeuralNet - INFO - Epoch [22/100], Train Loss: 31.0786
+2025-01-30 10:33:13,781 - NeuralNet - INFO - Epoch [22/100], Valid Loss: 32.1243
+2025-01-30 10:33:13,782 - NeuralNet - INFO - Early stopping at epoch 22
+2025-01-30 10:33:13,791 - NeuralNet - INFO - Training completed in 70.91 seconds.
+2025-01-30 10:33:13,896 - NeuralNet - INFO - Evaluating NeuralNet model...
+2025-01-30 10:33:13,897 - NeuralNet - INFO - Making predictions using NeuralNet model...
+2025-01-30 10:33:13,906 - NeuralNet - INFO - Prediction completed in 0.01 seconds.
+2025-01-30 10:33:13,912 - NeuralNet - INFO - Evaluation metrics:
+2025-01-30 10:33:13,913 - NeuralNet - INFO - MAE: 17.8780
+2025-01-30 10:33:13,913 - NeuralNet - INFO - MSE: 3881.3554
+2025-01-30 10:33:13,914 - NeuralNet - INFO - Evaluation completed in 0.02 seconds.
+2025-01-30 10:34:38,096 - NeuralNet - INFO - Training data shape: X_train=(40040, 21), y_train=(40040,)
+2025-01-30 10:34:38,098 - NeuralNet - INFO - Validation data shape: X_val=(2002, 21), y_val=(2002,)
+2025-01-30 10:34:38,098 - NeuralNet - INFO - Model config: {'hidden_dim': 100, 'output_dim': 1, 'dropout_rate': 0.2, 'epochs': 100, 'lr': '2e-5', 'batch_size': 256, 'patience': 10, 'loss': 'L1Loss', 'optimizer': 'Adam', 'print_per_epoch': 1}
+2025-01-30 10:34:38,099 - NeuralNet - INFO - Training NeuralNet model...
+2025-01-30 10:34:42,084 - NeuralNet - INFO - Epoch [1/100], Train Loss: 44.2165
+2025-01-30 10:34:42,189 - NeuralNet - INFO - Epoch [1/100], Valid Loss: 45.9975
+2025-01-30 10:34:46,818 - NeuralNet - INFO - Epoch [2/100], Train Loss: 44.1915
+2025-01-30 10:34:46,924 - NeuralNet - INFO - Epoch [2/100], Valid Loss: 45.9266
+2025-01-30 10:34:51,518 - NeuralNet - INFO - Epoch [3/100], Train Loss: 44.0948
+2025-01-30 10:34:51,976 - NeuralNet - INFO - Epoch [3/100], Valid Loss: 45.7589
+2025-01-30 10:34:56,761 - NeuralNet - INFO - Epoch [4/100], Train Loss: 43.7557
+2025-01-30 10:34:56,897 - NeuralNet - INFO - Epoch [4/100], Valid Loss: 45.4091
+2025-01-30 10:35:02,526 - NeuralNet - INFO - Epoch [5/100], Train Loss: 43.2999
+2025-01-30 10:35:02,632 - NeuralNet - INFO - Epoch [5/100], Valid Loss: 44.7408
+2025-01-30 10:35:07,046 - NeuralNet - INFO - Epoch [6/100], Train Loss: 42.5135
+2025-01-30 10:35:07,168 - NeuralNet - INFO - Epoch [6/100], Valid Loss: 43.6671
+2025-01-30 10:35:10,883 - NeuralNet - INFO - Epoch [7/100], Train Loss: 41.5661
+2025-01-30 10:35:10,984 - NeuralNet - INFO - Epoch [7/100], Valid Loss: 42.2228
+2025-01-30 10:35:14,586 - NeuralNet - INFO - Epoch [8/100], Train Loss: 40.3888
+2025-01-30 10:35:14,696 - NeuralNet - INFO - Epoch [8/100], Valid Loss: 40.4453
+2025-01-30 10:35:19,110 - NeuralNet - INFO - Epoch [9/100], Train Loss: 39.3205
+2025-01-30 10:35:19,178 - NeuralNet - INFO - Epoch [9/100], Valid Loss: 38.6082
+2025-01-30 10:35:22,717 - NeuralNet - INFO - Epoch [10/100], Train Loss: 38.2863
+2025-01-30 10:35:22,806 - NeuralNet - INFO - Epoch [10/100], Valid Loss: 36.9313
+2025-01-30 10:35:26,849 - NeuralNet - INFO - Epoch [11/100], Train Loss: 37.5632
+2025-01-30 10:35:26,947 - NeuralNet - INFO - Epoch [11/100], Valid Loss: 35.5577
+2025-01-30 10:35:30,748 - NeuralNet - INFO - Epoch [12/100], Train Loss: 36.9584
+2025-01-30 10:35:30,865 - NeuralNet - INFO - Epoch [12/100], Valid Loss: 34.5214
+2025-01-30 10:35:34,249 - NeuralNet - INFO - Epoch [13/100], Train Loss: 36.4022
+2025-01-30 10:35:34,338 - NeuralNet - INFO - Epoch [13/100], Valid Loss: 33.7408
+2025-01-30 10:35:38,339 - NeuralNet - INFO - Epoch [14/100], Train Loss: 35.9525
+2025-01-30 10:35:38,803 - NeuralNet - INFO - Epoch [14/100], Valid Loss: 33.1105
+2025-01-30 10:35:44,939 - NeuralNet - INFO - Epoch [15/100], Train Loss: 35.5845
+2025-01-30 10:35:45,021 - NeuralNet - INFO - Epoch [15/100], Valid Loss: 32.7330
+2025-01-30 10:35:49,813 - NeuralNet - INFO - Epoch [16/100], Train Loss: 35.2165
+2025-01-30 10:35:49,951 - NeuralNet - INFO - Epoch [16/100], Valid Loss: 32.3334
+2025-01-30 10:35:55,769 - NeuralNet - INFO - Epoch [17/100], Train Loss: 34.9336
+2025-01-30 10:35:55,849 - NeuralNet - INFO - Epoch [17/100], Valid Loss: 32.1154
+2025-01-30 10:35:59,417 - NeuralNet - INFO - Epoch [18/100], Train Loss: 34.5299
+2025-01-30 10:35:59,496 - NeuralNet - INFO - Epoch [18/100], Valid Loss: 31.8569
+2025-01-30 10:36:04,462 - NeuralNet - INFO - Epoch [19/100], Train Loss: 34.3701
+2025-01-30 10:36:04,580 - NeuralNet - INFO - Epoch [19/100], Valid Loss: 31.7906
+2025-01-30 10:36:10,178 - NeuralNet - INFO - Epoch [20/100], Train Loss: 34.1162
+2025-01-30 10:36:10,321 - NeuralNet - INFO - Epoch [20/100], Valid Loss: 31.7373
+2025-01-30 10:36:15,809 - NeuralNet - INFO - Epoch [21/100], Train Loss: 33.8936
+2025-01-30 10:36:15,921 - NeuralNet - INFO - Epoch [21/100], Valid Loss: 31.6875
+2025-01-30 10:36:20,326 - NeuralNet - INFO - Epoch [22/100], Train Loss: 33.6812
+2025-01-30 10:36:20,432 - NeuralNet - INFO - Epoch [22/100], Valid Loss: 31.6623
+2025-01-30 10:36:25,498 - NeuralNet - INFO - Epoch [23/100], Train Loss: 33.3317
+2025-01-30 10:36:25,649 - NeuralNet - INFO - Epoch [23/100], Valid Loss: 31.7423
+2025-01-30 10:36:30,550 - NeuralNet - INFO - Epoch [24/100], Train Loss: 33.1068
+2025-01-30 10:36:30,688 - NeuralNet - INFO - Epoch [24/100], Valid Loss: 31.7039
+2025-01-30 10:36:36,878 - NeuralNet - INFO - Epoch [25/100], Train Loss: 32.9344
+2025-01-30 10:36:37,029 - NeuralNet - INFO - Epoch [25/100], Valid Loss: 31.7145
+2025-01-30 10:36:43,790 - NeuralNet - INFO - Epoch [26/100], Train Loss: 32.7993
+2025-01-30 10:36:43,994 - NeuralNet - INFO - Epoch [26/100], Valid Loss: 31.5757
+2025-01-30 10:36:49,513 - NeuralNet - INFO - Epoch [27/100], Train Loss: 32.6826
+2025-01-30 10:36:49,619 - NeuralNet - INFO - Epoch [27/100], Valid Loss: 31.6131
+2025-01-30 10:36:55,857 - NeuralNet - INFO - Epoch [28/100], Train Loss: 32.4435
+2025-01-30 10:36:55,995 - NeuralNet - INFO - Epoch [28/100], Valid Loss: 31.5538
+2025-01-30 10:37:01,917 - NeuralNet - INFO - Epoch [29/100], Train Loss: 32.5105
+2025-01-30 10:37:02,142 - NeuralNet - INFO - Epoch [29/100], Valid Loss: 31.6872
+2025-01-30 10:37:04,858 - NeuralNet - INFO - Epoch [30/100], Train Loss: 32.1946
+2025-01-30 10:37:04,939 - NeuralNet - INFO - Epoch [30/100], Valid Loss: 31.6112
+2025-01-30 10:37:08,039 - NeuralNet - INFO - Epoch [31/100], Train Loss: 32.0768
+2025-01-30 10:37:08,130 - NeuralNet - INFO - Epoch [31/100], Valid Loss: 31.6923
+2025-01-30 10:37:11,827 - NeuralNet - INFO - Epoch [32/100], Train Loss: 32.0801
+2025-01-30 10:37:11,910 - NeuralNet - INFO - Epoch [32/100], Valid Loss: 31.8124
+2025-01-30 10:37:16,319 - NeuralNet - INFO - Epoch [33/100], Train Loss: 31.9006
+2025-01-30 10:37:16,438 - NeuralNet - INFO - Epoch [33/100], Valid Loss: 31.7659
+2025-01-30 10:37:21,784 - NeuralNet - INFO - Epoch [34/100], Train Loss: 31.8340
+2025-01-30 10:37:21,918 - NeuralNet - INFO - Epoch [34/100], Valid Loss: 31.7275
+2025-01-30 10:37:25,854 - NeuralNet - INFO - Epoch [35/100], Train Loss: 31.7442
+2025-01-30 10:37:25,949 - NeuralNet - INFO - Epoch [35/100], Valid Loss: 31.8202
+2025-01-30 10:37:32,971 - NeuralNet - INFO - Epoch [36/100], Train Loss: 31.8317
+2025-01-30 10:37:33,107 - NeuralNet - INFO - Epoch [36/100], Valid Loss: 31.8477
+2025-01-30 10:37:37,477 - NeuralNet - INFO - Epoch [37/100], Train Loss: 31.7016
+2025-01-30 10:37:37,555 - NeuralNet - INFO - Epoch [37/100], Valid Loss: 31.8036
+2025-01-30 10:37:41,777 - NeuralNet - INFO - Epoch [38/100], Train Loss: 31.7249
+2025-01-30 10:37:41,898 - NeuralNet - INFO - Epoch [38/100], Valid Loss: 31.8767
+2025-01-30 10:37:41,899 - NeuralNet - INFO - Early stopping at epoch 38
+2025-01-30 10:37:41,904 - NeuralNet - INFO - Training completed in 183.81 seconds.
+2025-01-30 10:37:42,007 - NeuralNet - INFO - Evaluating NeuralNet model...
+2025-01-30 10:37:42,010 - NeuralNet - INFO - Making predictions using NeuralNet model...
+2025-01-30 10:37:42,058 - NeuralNet - INFO - Prediction completed in 0.05 seconds.
+2025-01-30 10:37:42,065 - NeuralNet - INFO - Evaluation metrics:
+2025-01-30 10:37:42,066 - NeuralNet - INFO - MAE: 17.9499
+2025-01-30 10:37:42,066 - NeuralNet - INFO - MSE: 3954.1864
+2025-01-30 10:37:42,068 - NeuralNet - INFO - Evaluation completed in 0.06 seconds.

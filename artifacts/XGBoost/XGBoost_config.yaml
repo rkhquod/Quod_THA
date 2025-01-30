@@ -1,0 +1,12 @@
+XGBoost:
+  colsample_bytree: 0.5167227122949185
+  device: cuda
+  learning_rate: 0.19308985065150314
+  max_depth: 7
+  min_child_weight: 6
+  n_estimators: 38
+  n_jobs: -1
+  objective: reg:absoluteerror
+  random_state: 42
+  tree_method: hist
+  verbosity: 1

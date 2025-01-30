@@ -1,0 +1,12 @@
+2025-01-30 10:21:02,245 - RandomForest - INFO - Training data shape: X_train=(46046, 21), y_train=(46046,)
+2025-01-30 10:21:02,246 - RandomForest - INFO - Validation data shape: X_val=(0, 0), y_val=(0,)
+2025-01-30 10:21:02,247 - RandomForest - INFO - Model config: {'criterion': 'absolute_error', 'n_estimators': 80, 'max_depth': 5, 'max_features': 'sqrt', 'min_samples_split': 2, 'n_jobs': -1, 'random_state': 42, 'verbose': 1}
+2025-01-30 10:21:02,248 - RandomForest - INFO - Training RandomForest model...
+2025-01-30 10:29:00,868 - RandomForest - INFO - Training completed in 478.62 seconds.
+2025-01-30 10:29:01,139 - RandomForest - INFO - Evaluating RandomForest model...
+2025-01-30 10:29:01,140 - RandomForest - INFO - Making predictions using RandomForest model...
+2025-01-30 10:29:01,232 - RandomForest - INFO - Prediction completed in 0.09 seconds.
+2025-01-30 10:29:01,236 - RandomForest - INFO - Evaluation metrics:
+2025-01-30 10:29:01,237 - RandomForest - INFO - MAE: 17.3601
+2025-01-30 10:29:01,237 - RandomForest - INFO - MSE: 3276.6155
+2025-01-30 10:29:01,238 - RandomForest - INFO - Evaluation completed in 0.10 seconds.
