@@ -1,0 +1,9 @@
+# env directories/variables
+venv/
+
+# results
+models/
+solutions/tasks/results/
+
+# others
+.idea/
