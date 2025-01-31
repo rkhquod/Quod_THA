@@ -24,7 +24,7 @@ export PYTHONPATH=$(pwd)
   * `validate` - validate of trained models (in the `streamlit` app)
 * You can run the scripts using the following commands:
 
-Be sure, that You have good PYTHONPATH (base directory)
+Be sure, that You have set PYTHONPATH (base directory)
 ```bash
 export PYTHONPATH=$(pwd)
 ```
@@ -42,7 +42,7 @@ streamlit run solutions/tasks/task_2/main.py
 ### Task 3: Customer Transactions Forecasting
 #### Training the Model:
 ```bash
-streamlit run solutions/tasks/task_3/training.py
+python solutions/tasks/task_3/training.py
 ```
 
 Inference and validation are possible for default dates during training ("2019-01-31").
